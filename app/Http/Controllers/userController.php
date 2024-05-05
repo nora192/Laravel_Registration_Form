@@ -49,11 +49,8 @@ class userController extends Controller
             session()->flash('message', 'User not added');
 
         }
-        // Mail::to('admin@example.com')->send(new NewUserRegistered($user));
+
         Mail::to('2efd262b3d-e98679@inbox.mailtrap.io')->send(new emailMailable($user));
-        // return response()->json(['message' => 'Email sent successfully'], 200);
         return redirect("/register")->with('success', 'Registration successful!');
-
-
     }
 }
